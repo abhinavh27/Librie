@@ -27,4 +27,12 @@ public class BookService {
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
+
+    public List<Book> getBooksByGenre(String genre) {
+        return bookRepository.findAllByGenre(genre);
+    }
+
+    public List<Book> getBooksByTitle(String title) {
+        return bookRepository.findAllByBookTitle(title);
+    }
 }

@@ -14,9 +14,23 @@ public class BookController {
 
     private final BookService bookService;
 
-    @GetMapping("/")
+    @GetMapping("/allBooks")
     private List<Book> getBooks() {
         return bookService.getBooks();
+    }
+
+    @GetMapping("/booksByGenre")
+    private List<Book> getBooksByGenre(
+            @RequestParam String genre
+    ){
+        return bookService.getBooksByGenre(genre);
+    }
+
+    @GetMapping("/{title}")
+    public List<Book> getBookByTitle(
+            @PathVariable String title
+    ){
+        return bookService.getBooksByTitle(title);
     }
 
     @PostMapping("/addBook")
